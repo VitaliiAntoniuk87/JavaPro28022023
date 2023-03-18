@@ -11,8 +11,8 @@ public abstract class Participant {
         if (runLimit > 0 && jumpLimit > 0) {
             this.runLimit = runLimit;
             this.jumpLimit = jumpLimit;
-        } else {
-            System.out.println("RunLimit and jumpLimit should be higher than 0");
+        } else if (runLimit < 0 && jumpLimit < 0) {
+            System.out.println("RunLimit and jumpLimit should have positive value");
         }
     }
 
@@ -28,12 +28,28 @@ public abstract class Participant {
         return name;
     }
 
+    public void setRunLimit(int runLimit) {
+        this.runLimit = runLimit;
+    }
+
+    public void setJumpLimit(int jumpLimit) {
+        this.jumpLimit = jumpLimit;
+    }
+
     public void run() {
-        System.out.println(getName() + " is running...");
+        if (getRunLimit() == 0) {
+            System.out.println(getName() + " can't run ((");
+        } else if (getRunLimit() > 0) {
+            System.out.println(getName() + " is running...");
+        }
     }
 
 
     public void jump() {
-        System.out.println(getName() + " is jumping...");
+        if (getJumpLimit() == 0) {
+            System.out.println(getName() + " can't run ((");
+        } else if (getJumpLimit() > 0) {
+            System.out.println(getName() + " is running...");
+        }
     }
 }
