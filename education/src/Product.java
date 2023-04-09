@@ -100,7 +100,7 @@ public class Product {
 
     public static List<Product> getLastCreatedProducts(List<Product> products, int productElementsQuantityToReturn) {
         return products.stream()
-                .sorted(Collections.reverseOrder(Product::compareByID))
+                .sorted(Collections.reverseOrder(Product::compareByCreateDate))
                 .limit(productElementsQuantityToReturn)
                 .toList();
     }
@@ -133,8 +133,8 @@ public class Product {
         return Double.compare(this.getPrice(), product.getPrice());
     }
 
-    private int compareByID(Product product) {
-        return Integer.compare(this.getId(), product.getId());
+    private int compareByCreateDate(Product product) {
+        return this.createDate.compareTo(product.getCreateDate());
     }
 
 }
