@@ -1,6 +1,5 @@
 package hometask8;
 
-import java.util.HashMap;
 
 public class NavigateMain {
 
@@ -15,7 +14,7 @@ public class NavigateMain {
 
         FileData file4 = new FileData("file4", 12, "/path/to/file4");
 
-        FileNavigator fileRepository = new FileNavigator(new HashMap<>());
+        FileNavigator fileRepository = new FileNavigator();
 
 //        add:
         fileRepository.add(file1, "/path/to/file1");

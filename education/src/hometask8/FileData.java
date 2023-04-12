@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class FileData {
 
-    private String name;
-    private int size;
-    private String path;
+    private final String name;
+    private final int size;
+    private final String path;
 
     public FileData(String name, int size, String path) {
         this.name = name;
@@ -18,24 +18,12 @@ public class FileData {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getSize() {
         return size;
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-
     public String getPath() {
         return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
     }
 
     @Override
