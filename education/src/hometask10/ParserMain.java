@@ -8,6 +8,7 @@ public class ParserMain {
 
         parser.calcWordStatisticFromBook();
 
+        System.out.println(parser);
         System.out.println();
         try {
             parser.printWordStatisticToBookAndConsole();

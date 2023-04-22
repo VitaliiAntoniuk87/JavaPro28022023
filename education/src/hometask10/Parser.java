@@ -2,6 +2,8 @@ package hometask10;
 
 import java.io.*;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public class Parser {
@@ -10,27 +12,18 @@ public class Parser {
 
 
     public void calcWordStatisticFromBook() {
-        String bookName = getBookName();
-        List<String> textContainer = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("src/" + bookName + ".txt"))) {
-            String line = reader.readLine();
-            while (line != null) {
-                textContainer.addAll(Arrays.asList(line.split("[^a-zA-Z]")));
-                line = reader.readLine();
+        boolean isBookNameCorrect = false;
+        while (!isBookNameCorrect) {
+            String bookName = getBookName();
+            try (BufferedReader reader = new BufferedReader(new FileReader("src/" + bookName + ".txt"))) {
+                reader.lines()
+                        .flatMap(a -> Arrays.stream(a.split("[^a-zA-Z]")))
+                        .filter(e -> e.length() > 2)
+                        .forEach(e -> filteredWords.merge(e, 1, (old, current) -> old + 1));
+                isBookNameCorrect = true;
+            } catch (IOException e) {
+                System.err.println("Book not found. Please try again.");
             }
-            for (String word : textContainer) {
-                if (word.length() > 2) {
-                    if (filteredWords.containsKey(word)) {
-                        filteredWords.replace(word, filteredWords.get(word) + 1);
-                    } else {
-                        filteredWords.put(word, 1);
-                    }
-                }
-            }
-
-        } catch (IOException e) {
-            System.err.println("Book not found. Plz try again.");
-            calcWordStatisticFromBook();
         }
     }
 
