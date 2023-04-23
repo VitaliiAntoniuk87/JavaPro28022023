@@ -1,3 +1,5 @@
+package hometask9;
+
 import java.util.List;
 
 public class ProductMain {
@@ -14,19 +16,19 @@ public class ProductMain {
         );
 
 //        1.2:
-//        System.out.println(Product.filterByTypeAndPrice(products, "book", 250));
+//        System.out.println(hometask9.Product.filterByTypeAndPrice(products, "book", 250));
 
 //        2.2:
-//        System.out.println(Product.filterByTypeAndDiscount(products, "book", 10));
+//        System.out.println(hometask9.Product.filterByTypeAndDiscount(products, "book", 10));
 
 //        3.2 & 3.3:
-//        System.out.println(Product.getCheapestProductByType(products,"book"));
+//        System.out.println(hometask9.Product.getCheapestProductByType(products,"book"));
 
 //        4.2:
-//        System.out.println(Product.getLastCreatedProducts(products,3));
+//        System.out.println(hometask9.Product.getLastCreatedProducts(products,3));
 
 //        5.2:
-//        System.out.println(Product.getCalculateProductSumByTypeCreateDate(products, "book", 75));
+//        System.out.println(hometask9.Product.getCalculateProductSumByTypeCreateDate(products, "book", 75));
 
 //        6.2:
         System.out.println(Product.groupByType(products));
