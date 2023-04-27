@@ -1,3 +1,5 @@
+package hometask9;
+
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -67,7 +69,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "hometask9.Product{" +
                 "id=" + id +
                 ", type=" + type +
                 ", price=" + price +
@@ -95,7 +97,7 @@ public class Product {
         return products.stream()
                 .filter(e -> e.getType().equals(type))
                 .min(Product::compareByPrice)
-                .orElseThrow(() -> new Exception("Product " + type + " not found"));
+                .orElseThrow(() -> new Exception("hometask9.Product " + type + " not found"));
     }
 
     public static List<Product> getLastCreatedProducts(List<Product> products, int productElementsQuantityToReturn) {
